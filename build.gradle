@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.demo'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+
+    implementation 'com.scalar-labs:scalardb-cluster-java-client-sdk:3.15.1'
+
+}
+tasks.register('runGetRecord', JavaExec) {
+    group = 'application'
+    mainClass = 'com.demo.GetRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runInsertRecord', JavaExec) {
+    group = 'application'
+    mainClass = 'com.demo.InsertRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runUpdateRecord', JavaExec) {
+    group = 'application'
+    mainClass = 'com.demo.UpdateRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runScanRecord', JavaExec) {
+    group = 'application'
+    mainClass = 'com.demo.ScanRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runUpsertRecord', JavaExec) {
+    group = 'application'
+    mainClass = 'com.demo.UpsertRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runDeleteRecord', JavaExec) {
+    group = 'application'
+    mainClass = 'com.demo.DeleteRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+test {
+    useJUnitPlatform()
+}
