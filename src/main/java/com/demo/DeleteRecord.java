@@ -2,7 +2,6 @@ package com.demo;
 import com.scalar.db.api.Delete;
 import com.scalar.db.api.DistributedTransaction;
 import com.scalar.db.api.DistributedTransactionManager;
-import com.scalar.db.api.Insert;
 import com.scalar.db.io.Key;
 import com.scalar.db.service.TransactionFactory;
 

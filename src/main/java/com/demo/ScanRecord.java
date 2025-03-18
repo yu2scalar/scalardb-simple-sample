@@ -18,7 +18,6 @@ public class ScanRecord {
         DistributedTransaction transaction = null;
 
         Integer pk = 1;
-        Integer ck = 1;
 
         try {
 
