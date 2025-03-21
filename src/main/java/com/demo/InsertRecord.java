@@ -1,9 +1,10 @@
 package com.demo;
 import com.scalar.db.api.DistributedTransaction;
 import com.scalar.db.api.DistributedTransactionManager;
-import com.scalar.db.api.Insert;
+import com.scalar.db.api.*;
 import com.scalar.db.io.Key;
 import com.scalar.db.service.TransactionFactory;
+
 
 
 public class InsertRecord {
@@ -16,16 +17,16 @@ public class InsertRecord {
 		DistributedTransactionManager manager;
 		DistributedTransaction transaction = null;
 
-		Integer pk = 1;
-		Integer ck = 1;
-		String textValue = "insert" + "-" + pk.toString() + "-" + ck.toString();
-
 		try {
+			Integer pk = 1;
+			Integer ck = 2;
+			String textValue = "insert" + "-" + pk.toString() + "-" + ck.toString();
 
 			TransactionFactory factory = TransactionFactory.create(SCALARDB_PROPERTIES);
 			manager = factory.getTransactionManager();
 
 			transaction = manager.start();
+
 			transaction.insert(
 					Insert.newBuilder()
 							.namespace(NAME_SPACE_NAME)
@@ -33,6 +34,7 @@ public class InsertRecord {
 							.partitionKey(Key.ofInt("pk", pk))
 							.clusteringKey(Key.ofInt("ck", ck))
 							.textValue("text_value", textValue).build());
+
 			transaction.commit();
 			
     		System.out.println("Records were inserted");

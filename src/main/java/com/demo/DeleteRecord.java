@@ -16,15 +16,15 @@ public class DeleteRecord {
 		DistributedTransactionManager manager;
 		DistributedTransaction transaction = null;
 
-		Integer pk = 1;
-		Integer ck = 1;
-
 		try {
+			Integer pk = 1;
+			Integer ck = 1;
 
 			TransactionFactory factory = TransactionFactory.create(SCALARDB_PROPERTIES);
 			manager = factory.getTransactionManager();
 
 			transaction = manager.start();
+
 			transaction.delete(
 					Delete.newBuilder()
 							.namespace(NAME_SPACE_NAME)
@@ -32,6 +32,7 @@ public class DeleteRecord {
 							.partitionKey(Key.ofInt("pk", pk))
 							.clusteringKey(Key.ofInt("ck", ck))
 							.build());
+
 			transaction.commit();
 			
     		System.out.println("Record was deleted");

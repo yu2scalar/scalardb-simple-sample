@@ -17,11 +17,10 @@ public class UpsertRecord {
 		DistributedTransactionManager manager;
 		DistributedTransaction transaction = null;
 
-		Integer pk = 1;
-		Integer ck = 1;
-		String textValue = "upsert" + "-" + pk.toString() + "-" + ck.toString();
-
 		try {
+			Integer pk = 1;
+			Integer ck = 1;
+			String textValue = "upsert" + "-" + pk.toString() + "-" + ck.toString();
 
 			TransactionFactory factory = TransactionFactory.create(SCALARDB_PROPERTIES);
 			manager = factory.getTransactionManager();

@@ -15,11 +15,11 @@ public class UpdateRecord {
 		DistributedTransactionManager manager;
 		DistributedTransaction transaction = null;
 
-		Integer pk = 1;
-		Integer ck = 1;
-		String textValue = "update" + "-" + pk.toString() + "-" + ck.toString();
-
 		try {
+
+			Integer pk = 1;
+			Integer ck = 1;
+			String textValue = "update" + "-" + pk.toString() + "-" + ck.toString();
 
 			TransactionFactory factory = TransactionFactory.create(SCALARDB_PROPERTIES);
 			manager = factory.getTransactionManager();

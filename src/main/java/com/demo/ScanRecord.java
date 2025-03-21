@@ -17,14 +17,14 @@ public class ScanRecord {
         DistributedTransactionManager manager;
         DistributedTransaction transaction = null;
 
-        Integer pk = 1;
-
         try {
+            Integer pk = 1;
 
             TransactionFactory factory = TransactionFactory.create(SCALARDB_PROPERTIES);
             manager = factory.getTransactionManager();
 
             transaction = manager.start();
+
             List<Result> results = transaction.scan(
                     Scan.newBuilder()
                             .namespace(NAME_SPACE_NAME)
@@ -33,6 +33,7 @@ public class ScanRecord {
                             .projections("pk", "ck", "text_value")
                             .limit(10)
                             .build());
+
             transaction.commit();
 
             if (results.isEmpty()) {

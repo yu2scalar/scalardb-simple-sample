@@ -16,15 +16,15 @@ public class GetRecord {
         DistributedTransactionManager manager;
         DistributedTransaction transaction = null;
 
-        Integer pk = 1;
-        Integer ck = 1;
-
         try {
+            Integer pk = 1;
+            Integer ck = 1;
 
             TransactionFactory factory = TransactionFactory.create(SCALARDB_PROPERTIES);
             manager = factory.getTransactionManager();
 
             transaction = manager.start();
+
             Optional<Result> result = transaction.get(
                     Get.newBuilder()
                             .namespace(NAME_SPACE_NAME)
@@ -33,6 +33,7 @@ public class GetRecord {
                             .clusteringKey(Key.ofInt("ck", ck))
                             .projections("pk", "ck", "text_value")
                             .build());
+
             transaction.commit();
 
             if (result.isEmpty()) {
