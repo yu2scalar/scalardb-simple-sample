@@ -34,6 +34,7 @@ public class CreateTable {
                             .addColumn("text_value", DataType.TEXT)
                             .addPartitionKey("pk")
                             .addClusteringKey("ck", Scan.Ordering.Order.ASC)
+                            .addSecondaryIndex("text_value")
                             .build();
 
             admin.createTable(NAME_SPACE_NAME, TABLE_NAME, sample);
