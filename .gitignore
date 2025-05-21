@@ -40,3 +40,13 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+src/test/
+
+
+scalardb_auth_cache_expiration.properties
+scalardb_core.properties
+scalardb_no_permission.properties
+scalardb_small_grpc_size.properties
+scalardb_wrong_add.properties
+scalardb_wrong_pass.properties

@@ -18,7 +18,7 @@ public class GetRecord {
 
         try {
             Integer pk = 1;
-            Integer ck = 1;
+            Integer ck = 2;
 
             TransactionFactory factory = TransactionFactory.create(SCALARDB_PROPERTIES);
             manager = factory.getTransactionManager();

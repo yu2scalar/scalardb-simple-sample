@@ -19,7 +19,7 @@ public class UpsertRecord {
 
 		try {
 			Integer pk = 1;
-			Integer ck = 1;
+			Integer ck = 2;
 			String textValue = "upsert" + "-" + pk.toString() + "-" + ck.toString();
 
 			TransactionFactory factory = TransactionFactory.create(SCALARDB_PROPERTIES);

@@ -18,7 +18,7 @@ public class UpdateRecord {
 		try {
 
 			Integer pk = 1;
-			Integer ck = 1;
+			Integer ck = 2;
 			String textValue = "update" + "-" + pk.toString() + "-" + ck.toString();
 
 			TransactionFactory factory = TransactionFactory.create(SCALARDB_PROPERTIES);

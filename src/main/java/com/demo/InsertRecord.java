@@ -36,7 +36,6 @@ public class InsertRecord {
 							.textValue("text_value", textValue).build());
 
 			transaction.commit();
-			
     		System.out.println("Records were inserted");
 
 		} catch (Exception e) {
