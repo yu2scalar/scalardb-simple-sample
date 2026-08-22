@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.demo'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.scalar-labs:scalardb-cluster-java-client-sdk:3.19.0'
+}
+
+// Each sample has its own main class. Run them in the order below.
+tasks.register('runCreateTable', JavaExec) {
+    group = 'application'
+    description = 'Creates the Coordinator tables, the namespace and the sample table.'
+    mainClass = 'com.demo.CreateTable'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runInsertRecord', JavaExec) {
+    group = 'application'
+    description = 'Inserts a record into the sample table.'
+    mainClass = 'com.demo.InsertRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runGetRecord', JavaExec) {
+    group = 'application'
+    description = 'Gets a record from the sample table.'
+    mainClass = 'com.demo.GetRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runUpdateRecord', JavaExec) {
+    group = 'application'
+    description = 'Updates a record in the sample table.'
+    mainClass = 'com.demo.UpdateRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runUpsertRecord', JavaExec) {
+    group = 'application'
+    description = 'Upserts a record into the sample table.'
+    mainClass = 'com.demo.UpsertRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runScanRecord', JavaExec) {
+    group = 'application'
+    description = 'Scans records in a partition of the sample table.'
+    mainClass = 'com.demo.ScanRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runDeleteRecord', JavaExec) {
+    group = 'application'
+    description = 'Deletes a record from the sample table.'
+    mainClass = 'com.demo.DeleteRecord'
+    classpath = sourceSets.main.runtimeClasspath
+}
+tasks.register('runDropTable', JavaExec) {
+    group = 'application'
+    description = 'Drops the sample table, the namespace and the Coordinator tables.'
+    mainClass = 'com.demo.DropTable'
+    classpath = sourceSets.main.runtimeClasspath
+}

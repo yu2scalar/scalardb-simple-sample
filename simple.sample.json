@@ -1,0 +1,19 @@
+{
+  "simple.sample": {
+    "transaction": true,
+    "partition-key": [
+      "pk"
+    ],
+    "clustering-key": [
+      "ck ASC"
+    ],
+    "columns": {
+      "pk": "INT",
+      "ck": "INT",
+      "text_value": "TEXT"
+    },
+    "secondary-index": [
+      "text_value"
+    ]
+  }
+}
